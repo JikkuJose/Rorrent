@@ -13,8 +13,10 @@ module Rorrent
 
     def files
       if valid?
-      parsed["info"]["files"]
-        .map { |f| f["path"] }
+        return [] unless parsed["info"]["files"]
+
+        parsed["info"]["files"]
+          .map { |f| f["path"] }
       else
         STDERR.puts "Invalid torrent file: #{info_hash}"
         []
