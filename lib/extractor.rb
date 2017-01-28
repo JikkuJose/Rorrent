@@ -17,6 +17,7 @@ module Rorrent
         .map { |f| f["path"] }
       else
         STDERR.puts "Invalid torrent file: #{info_hash}"
+        []
       end
     end
 
